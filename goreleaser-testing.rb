@@ -5,20 +5,20 @@
 class GoreleaserTesting < Formula
   desc ""
   homepage "https://github.com/PatrickMenoti/homebrew-tools"
-  version "1.1.0-beta.16"
+  version "1.1.0-beta.18"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.16/goreleaser-testing_1.1.0-beta.16_Darwin_arm64.tar.gz"
-      sha256 "f3231f838583b22f7e57d86a61216257797c41644049f95576f2d50b629e1fae"
+    if Hardware::CPU.intel?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.18/goreleaser-testing_1.1.0-beta.18_Darwin_x86_64.tar.gz"
+      sha256 "f1f32eeb3dec8eb34927afe4dcb6fe6f6a6d291035680aa10a52fba0bab8b7e6"
 
       def install
         bin.install "goreleaser-testing"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.16/goreleaser-testing_1.1.0-beta.16_Darwin_x86_64.tar.gz"
-      sha256 "7017c88fe11fb23be1034975d9f887f14754249ace8b23acb285a69f980c2969"
+    if Hardware::CPU.arm?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.18/goreleaser-testing_1.1.0-beta.18_Darwin_arm64.tar.gz"
+      sha256 "871b040ccb02be8816691461d20333b670aa5c17a98728957ddaefffbba1e8de"
 
       def install
         bin.install "goreleaser-testing"
@@ -27,17 +27,17 @@ class GoreleaserTesting < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.16/goreleaser-testing_1.1.0-beta.16_Linux_x86_64.tar.gz"
-      sha256 "19e7209450af94c6dd8a8a59658dcefa09879428f6a8f26b1293f942674efcfc"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.18/goreleaser-testing_1.1.0-beta.18_Linux_arm64.tar.gz"
+      sha256 "d4a45b51833b09127a9f701d44b056193b17d4c3ad051742d049fcc3094f2ad7"
 
       def install
         bin.install "goreleaser-testing"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.16/goreleaser-testing_1.1.0-beta.16_Linux_arm64.tar.gz"
-      sha256 "ff2c75ed921da9f21038a89a0ad6efb39e094805a8acf53bb13e45646f3e82c8"
+    if Hardware::CPU.intel?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.18/goreleaser-testing_1.1.0-beta.18_Linux_x86_64.tar.gz"
+      sha256 "8516079a57e8c9f17d5b800f9216d99e8bb6d00650df771760235e4c79606d6f"
 
       def install
         bin.install "goreleaser-testing"
