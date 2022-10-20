@@ -5,42 +5,54 @@
 class GoreleaserTesting < Formula
   desc ""
   homepage "https://github.com/PatrickMenoti/homebrew-tools"
-  version "1.1.0-beta.28"
+  version "1.1.0-beta.34"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Darwin_x86_64.tar.gz"
-      sha256 "1b9df4a414e98720358fcf7a5798857f35da225d374935568cca38ba68c694ee"
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.34/goreleaser-testing_1.1.0-beta.34_Darwin_x86_64.tar.gz"
+      sha256 "9b67162ba7fa614d1a3d8ca00482a106e0e1bcc5e3bc99d3cbd8c57ef9a714e9"
 
       def install
         bin.install "azioncli"
+        bash_completion.install "completions/azioncli.bash" => "azioncli"
+        zsh_completion.install "completions/azioncli.zsh" => "_azioncli"
+        fish_completion.install "completions/azioncli.fish"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Darwin_arm64.tar.gz"
-      sha256 "59f375991859648eb482e00aa2ef85ea08ae0891950295a5c50676a66876d0ca"
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.34/goreleaser-testing_1.1.0-beta.34_Darwin_arm64.tar.gz"
+      sha256 "bac50023b1c87a04eeae30a38ff55e70e194a7727fd03eacd0c82c5e969e0bae"
 
       def install
         bin.install "azioncli"
+        bash_completion.install "completions/azioncli.bash" => "azioncli"
+        zsh_completion.install "completions/azioncli.zsh" => "_azioncli"
+        fish_completion.install "completions/azioncli.fish"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Linux_arm64.tar.gz"
-      sha256 "3ac90336a36d5a9ab56f32578450a71cb291508291c6aeee7a968f5653910f74"
+    if Hardware::CPU.intel?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.34/goreleaser-testing_1.1.0-beta.34_Linux_x86_64.tar.gz"
+      sha256 "1957b425937f91c6e5d40385a7ad0cd027d78df03ed103b7099d8583e50c3fca"
 
       def install
         bin.install "azioncli"
+        bash_completion.install "completions/azioncli.bash" => "azioncli"
+        zsh_completion.install "completions/azioncli.zsh" => "_azioncli"
+        fish_completion.install "completions/azioncli.fish"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Linux_x86_64.tar.gz"
-      sha256 "ba74e174d628fb95ddacb84f69a04f8675c28c617a70ee43c9242b6071e227b1"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.34/goreleaser-testing_1.1.0-beta.34_Linux_arm64.tar.gz"
+      sha256 "81e6bd143b70e50b8959e4de21d7872acb254ae2e0795c82045478eedb720ced"
 
       def install
         bin.install "azioncli"
+        bash_completion.install "completions/azioncli.bash" => "azioncli"
+        zsh_completion.install "completions/azioncli.zsh" => "_azioncli"
+        fish_completion.install "completions/azioncli.fish"
       end
     end
   end
