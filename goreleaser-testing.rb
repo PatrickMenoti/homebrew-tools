@@ -5,20 +5,20 @@
 class GoreleaserTesting < Formula
   desc ""
   homepage "https://github.com/PatrickMenoti/homebrew-tools"
-  version "1.1.0-beta.24"
+  version "1.1.0-beta.28"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.24/goreleaser-testing_1.1.0-beta.24_Darwin_arm64.tar.gz"
-      sha256 "fc9afe32e30177c2a8e9a5c32fc76ed170f6356220f7038dc7c9f7fd5ace1ea0"
+    if Hardware::CPU.intel?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Darwin_x86_64.tar.gz"
+      sha256 "1b9df4a414e98720358fcf7a5798857f35da225d374935568cca38ba68c694ee"
 
       def install
         bin.install "azioncli"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.24/goreleaser-testing_1.1.0-beta.24_Darwin_x86_64.tar.gz"
-      sha256 "2f3b1ba8d821e909bb9c9a4905b0e4b0fb2826155893f255dc6f3e06a0197711"
+    if Hardware::CPU.arm?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Darwin_arm64.tar.gz"
+      sha256 "59f375991859648eb482e00aa2ef85ea08ae0891950295a5c50676a66876d0ca"
 
       def install
         bin.install "azioncli"
@@ -27,17 +27,17 @@ class GoreleaserTesting < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.24/goreleaser-testing_1.1.0-beta.24_Linux_x86_64.tar.gz"
-      sha256 "b78ae820a185e2ff30830b618afd3af0c79386142c68d5bfb9c1bafd5d8b8d02"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Linux_arm64.tar.gz"
+      sha256 "3ac90336a36d5a9ab56f32578450a71cb291508291c6aeee7a968f5653910f74"
 
       def install
         bin.install "azioncli"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.24/goreleaser-testing_1.1.0-beta.24_Linux_arm64.tar.gz"
-      sha256 "b2dc1365a8728dac9642443de12a1660ef7c44f33484ab56a72e98ddc8e50dca"
+    if Hardware::CPU.intel?
+      url "https://github.com/PatrickMenoti/goreleaser-testing/releases/download/v1.1.0-beta.28/goreleaser-testing_1.1.0-beta.28_Linux_x86_64.tar.gz"
+      sha256 "ba74e174d628fb95ddacb84f69a04f8675c28c617a70ee43c9242b6071e227b1"
 
       def install
         bin.install "azioncli"
